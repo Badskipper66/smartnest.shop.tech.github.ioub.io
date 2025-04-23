@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shopping Cart - My E-Commerce Store</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="index.html"><img src="images/LOGO 03.png" alt="Company Logo" class="logo" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="cart.html">Cart <span id="cart-count" class="cart-count-badge">0</span></a></li>
+          <li><a href="account.html">Account</a></li>
+         
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container cart-page">
+    <h1>CART SUMMARY</h1>
+    <img src="images/cart.png" alt="Cart Image" style="display:block; margin: 20px auto; max-width: 150px;" />
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+    <button id="clear-cart" class="btn">Clear Cart</button>
+    <button id="checkout-btn" class="btn" style="margin-left: 10px;">Proceed to Checkout</button>
+  </main>
+
+  <footer>
+    <div class="container">
+      <img src="images/LOGO 03.png" alt="Footer Logo" class="footer-logo" />
+      <p>&copy; 2025 Smart Nest | Tech Store. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalContainer = document.getElementById('cart-total');
+    const clearCartBtn = document.getElementById('clear-cart');
+    const cartCountBadge = document.getElementById('cart-count');
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let totalCount = 0;
+      cart.forEach(item => {
+        totalCount += item.quantity;
+      });
+      cartCountBadge.textContent = totalCount;
+    }
+
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItemsContainer.innerHTML = '';
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        cartTotalContainer.innerHTML = '';
+        clearCartBtn.style.display = 'none';
+        updateCartCount();
+        return;
+      }
+      clearCartBtn.style.display = 'inline-block';
+
+      let subtotal = 0;
+      cart.forEach((item, index) => {
+        subtotal += item.price * item.quantity;
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" />
+          <div class="item-details">
+            <h3>${item.name}</h3>
+            <p>Price: $${item.price.toFixed(2)}</p>
+            <p>Quantity: ${item.quantity}</p>
+            <button class="remove-btn" data-index="${index}">Remove</button>
+          </div>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+      });
+
+      // Calculate tax and shipping
+      const taxRate = 0.1; // 10% tax
+      const shippingFee = 15.00; // flat shipping fee
+
+      const taxAmount = subtotal * taxRate;
+      const total = subtotal + taxAmount + shippingFee;
+
+      cartTotalContainer.innerHTML = `
+        <h3>Subtotal: $${subtotal.toFixed(2)}</h3>
+        <h3>Tax (10%): $${taxAmount.toFixed(2)}</h3>
+        <h3>Shipping: $${shippingFee.toFixed(2)}</h3>
+        <h2>Total: $${total.toFixed(2)}</h2>
+      `;
+
+      // Add event listeners to remove buttons
+      document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', e => {
+          const idx = e.target.getAttribute('data-index');
+          removeFromCart(parseInt(idx));
+        });
+      });
+
+      updateCartCount();
+    }
+
+    function removeFromCart(index) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    clearCartBtn.addEventListener('click', () => {
+      localStorage.removeItem('cart');
+      loadCart();
+    });
+
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (cart.length === 0) {
+        alert('Your cart is empty. Add items before checking out.');
+        return;
+      }
+      // Redirect to checkout page
+      window.location.href = 'checkout.html';
+    });
+
+    loadCart();
+  </script>
+</body>
+</html>

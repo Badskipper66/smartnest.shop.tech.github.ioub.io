@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Orders - My E-Commerce Store</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
+  <style>
+    .order-product-card {
+      background: linear-gradient(145deg, #e0e0e0, #ffffff);
+      border-radius: 20px;
+      box-shadow: 8px 8px 15px #bebebe, -8px -8px 15px #ffffff;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .order-product-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 6px 6px 10px #bebebe, -6px -6px 10px #ffffff;
+      flex-shrink: 0;
+    }
+    .order-info {
+      flex: 1;
+      text-align: left;
+      min-width: 250px;
+    }
+    .order-info h3 {
+      color: #007bff;
+      margin: 0 0 8px 0;
+    }
+    .order-info p {
+      margin: 4px 0;
+      color: #555;
+      font-size: 1rem;
+    }
+    .details-toggle {
+      cursor: pointer;
+      color: #007bff;
+      text-decoration: underline;
+      margin-top: 8px;
+      user-select: none;
+    }
+    .product-details-preview {
+      display: none;
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 10px 15px;
+      margin-top: 10px;
+      box-shadow: inset 2px 2px 5px #ccc;
+      font-size: 0.95rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html"><img src="images/LOGO 03.png" alt="Company Logo" class="logo" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="orders.html" class="active">Orders</a></li>
+          <li><a href="account.html">Account</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Your Orders</h1>
+    <p class="order-count" id="orderCount">Loading...</p>
+    <div id="orderList" class="order-list"></div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <img src="images/LOGO 03.png" alt="Footer Logo" class="footer-logo" />
+      <p>&copy; 2025 Smart Nest | Tech Store. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mock product details data for demo purposes
+    const productDetailsData = {
+      "iPhone 15": {
+        description: "The latest Apple iPhone 15 with advanced camera, powerful processor, and sleek design.",
+        features: [
+          "6.1-inch Super Retina XDR display",
+          "A15 Bionic chip",
+          "Dual 12MP camera system",
+          "5G capable",
+          "Available in multiple colors"
+        ]
+      }
+      // Add more products here as needed
+    };
+
+    // Function to calculate estimated delivery date based on country
+    function calculateDeliveryDate(orderDate, country) {
+      const deliveryDaysByCountry = {
+        "USA": 5,
+        "Canada": 7,
+        "UK": 6,
+        "Australia": 8,
+        "Germany": 6,
+        "France": 6,
+        "India": 10,
+        "default": 7
+      };
+      const daysToAdd = deliveryDaysByCountry[country] || deliveryDaysByCountry["default"];
+      const deliveryDate = new Date(orderDate);
+      deliveryDate.setDate(deliveryDate.getDate() + daysToAdd);
+      return deliveryDate;
+    }
+
+    function formatDate(date) {
+      return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+    }
+
+    function loadOrderCount() {
+      // For demo, extend cart items with orderDate and country if not present
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (cart.length > 0 && !cart[0].orderDate) {
+        const now = new Date();
+        cart = cart.map(item => ({
+          ...item,
+          orderDate: now.toISOString(),
+          country: "USA" // Default country, can be changed or extended to get from user
+        }));
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+
+      let totalQuantity = 0;
+      cart.forEach(item => {
+        totalQuantity += item.quantity;
+      });
+      const orderCountElem = document.getElementById('orderCount');
+      const orderListElem = document.getElementById('orderList');
+      if (totalQuantity > 0) {
+        orderCountElem.textContent = `You have ordered ${totalQuantity} product${totalQuantity > 1 ? 's' : ''}.`;
+        // Clear previous content
+        orderListElem.innerHTML = '';
+        // Create product cards
+        cart.forEach(item => {
+          const productCard = document.createElement('div');
+          productCard.className = 'order-product-card';
+
+          const img = document.createElement('img');
+          img.src = item.image;
+          img.alt = item.name;
+
+          const infoDiv = document.createElement('div');
+          infoDiv.className = 'order-info';
+
+          const nameElem = document.createElement('h3');
+          nameElem.textContent = item.name;
+
+          const quantityElem = document.createElement('p');
+          quantityElem.textContent = `Quantity: ${item.quantity}`;
+
+          const orderDate = new Date(item.orderDate);
+          const orderDateElem = document.createElement('p');
+          orderDateElem.textContent = `Order Date: ${formatDate(orderDate)}`;
+
+          const deliveryDate = calculateDeliveryDate(orderDate, item.country);
+          const deliveryDateElem = document.createElement('p');
+          deliveryDateElem.textContent = `Estimated Delivery: ${formatDate(deliveryDate)} (Country: ${item.country})`;
+
+          // Details toggle
+          const detailsToggle = document.createElement('p');
+          detailsToggle.className = 'details-toggle';
+          detailsToggle.textContent = 'Show Product Details';
+
+          // Product details preview
+          const detailsPreview = document.createElement('div');
+          detailsPreview.className = 'product-details-preview';
+
+          const productDetails = productDetailsData[item.name];
+          if (productDetails) {
+            const descElem = document.createElement('p');
+            descElem.textContent = productDetails.description;
+            detailsPreview.appendChild(descElem);
+
+            const featuresList = document.createElement('ul');
+            productDetails.features.forEach(feature => {
+              const li = document.createElement('li');
+              li.textContent = feature;
+              featuresList.appendChild(li);
+            });
+            detailsPreview.appendChild(featuresList);
+          } else {
+            detailsPreview.textContent = 'No product details available.';
+          }
+
+          detailsToggle.addEventListener('click', () => {
+            if (detailsPreview.style.display === 'none' || detailsPreview.style.display === '') {
+              detailsPreview.style.display = 'block';
+              detailsToggle.textContent = 'Hide Product Details';
+            } else {
+              detailsPreview.style.display = 'none';
+              detailsToggle.textContent = 'Show Product Details';
+            }
+          });
+
+          infoDiv.appendChild(nameElem);
+          infoDiv.appendChild(quantityElem);
+          infoDiv.appendChild(orderDateElem);
+          infoDiv.appendChild(deliveryDateElem);
+          infoDiv.appendChild(detailsToggle);
+          infoDiv.appendChild(detailsPreview);
+
+          productCard.appendChild(img);
+          productCard.appendChild(infoDiv);
+          orderListElem.appendChild(productCard);
+        });
+      } else {
+        orderCountElem.textContent = 'You have not ordered any products yet.';
+        orderListElem.innerHTML = '';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadOrderCount);
+  </script>
+</body>
+</html>

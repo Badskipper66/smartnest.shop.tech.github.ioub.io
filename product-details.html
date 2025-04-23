@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details - My E-Commerce Store</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html"><img src="images/LOGO 03.png" alt="Company Logo" class="logo" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html" aria-label="Go to Home Page">Home</a></li>
+          <li><a href="product.html" class="active" aria-label="View Products">Products</a></li>
+          <li><a href="about.html" aria-label="Learn About Us">About</a></li>
+          <li><a href="cart.html" aria-label="View Your Cart">Cart</a></li>
+          <li><a href="account.html" aria-label="Manage Your Account">Account</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container product-details">
+    <h1 id="productName">iphone15</h1>
+    <div class="product-info">
+      <img id="productImage" src="images/iphone15.jpg" alt="Product Image" class="product-image" />
+      <div id="productGallery" class="product-gallery">
+        <!-- Static gallery thumbnails added here -->
+        <img src="images/iphone15.jpg" alt="iPhone 15 front" class="gallery-thumb active" />
+        <img src="images/iphone15-side.jpg" alt="iPhone 15 side" class="gallery-thumb" />
+        <img src="images/iphone15-back.jpg" alt="iPhone 15 back" class="gallery-thumb" />
+        <!-- Add more images here as needed -->
+      </div>
+  </main>
+  <main class="container product-details">
+    <h1 id="productName">Lenovo ThinkPad L530</h1>
+    <div class="product-info">
+      <img id="productImage" src="images/Lenovo ThinkPad L530 Pc.jpg" alt="Product Image" class="product-image" />
+      <div id="productGallery" class="product-gallery">
+        <!-- Static gallery thumbnails added here -->
+        <img src="images/Lenovo ThinkPad L530 Pc.jpg" alt="Lenovo ThinkPad L530 Pc" class="gallery-thumb active" />
+        <img src="images/Lenovo ThinkPad L530 Pc Side.jpg" alt="Lenovo ThinkPad L530 Pc Side" class="gallery-thumb" />
+        <img src="images/Lenovo ThinkPad L530 Pc Back.jpg" alt="Lenovo ThinkPad L530 Pc Back" class="gallery-thumb" />
+        <!-- Add more images here as needed -->
+      </div>
+      <div class="product-description">
+        <p id="productDescription">The latest Apple iPhone 15 with advanced camera, powerful processor, and sleek design.</p>
+        <ul id="productFeatures">
+          <li>6.1-inch Super Retina XDR display</li>
+          <li>A15 Bionic chip</li>
+          <li>Dual 12MP camera system</li>
+          <li>5G capable</li>
+          <li>Available in multiple colors</li>
+        </ul>
+        <p class="price" id="productPrice">$999.00</p>
+        <button class="btn add-to-cart" id="addToCartBtn">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <img src="images/LOGO 03.png" alt="Footer Logo" class="footer-logo" />
+      <p>&copy; 2025 Smart Nest | Tech Store. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script>
+    // Update main image when clicking on gallery thumbnails
+    const mainImage = document.getElementById('productImage');
+    const galleryThumbs = document.querySelectorAll('.gallery-thumb');
+
+    galleryThumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        mainImage.src = thumb.src;
+        mainImage.alt = thumb.alt;
+        galleryThumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    // Add to cart button functionality
+    document.getElementById('addToCartBtn').addEventListener('click', () => {
+      const product = {
+        name: document.getElementById('productName').textContent,
+        price: parseFloat(document.getElementById('productPrice').textContent.replace('$', '')),
+        image: mainImage.src,
+        quantity: 1
+      };
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingIndex = cart.findIndex(item => item.name === product.name);
+      if (existingIndex !== -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push(product);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${product.name} has been added to your cart.`);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
+</head>
+  <body>
+  <div class="container">
+    <h1>Help Page</h1>
+    <div class="dropdown">
+      <button class="dropbtn">Select Help Topic</button>
+      <div class="dropdown-content">
+        <a href="#" id="help-center">Help Center</a>
+        <a href="#">Place an Order</a>
+        <a href="#">Pay for Your Order</a>
+        <a href="#">Track Your Order</a>
+        <a href="#">Cancel Your Order</a>
+        <a href="#">Create Return</a>
+      </div>
+    </div>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    document.getElementById('help-center').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('message').textContent = 'Hi, dear how can we help you';
+    });
+  </script>
+</body>
+</html>

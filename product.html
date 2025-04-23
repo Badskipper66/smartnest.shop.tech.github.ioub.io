@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Details - My E-Commerce Store</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="index.html"><img src="images/LOGO 03.png" alt="Company Logo" class="logo" /></a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html" class="active">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="account.html">Account</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="recruit.html">Recruit</a></li>
+        </ul>
+      </nav>
+      <div class="header-search">
+        <input type="text" placeholder="Search products..." aria-label="Search products" id="headerSearchInput" />
+        <button type="button" aria-label="Search" id="headerSearchButton">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container product-details">
+    <h1>Products</h1>
+
+    <div class="filter-container">
+      <select id="categorySelect">
+        <option value="all">All Categories</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="Search products..." />
+      <button id="searchButton">Search</button>
+    </div>
+
+    <div class="products-grid">
+    <div class="product-info" data-category="smartphone">
+      <a href="product-details.html"><img src="images/iphone15.jpg" alt="iPhone 15" class="product-image" /></a>
+      <div class="product-description">
+        <h2><a href="product-details.html">iPhone 15</a></h2>
+        <p>The latest Apple iPhone 15 with advanced camera, powerful processor, and sleek design.</p>
+        <ul>
+          <li>6.1-inch Super Retina XDR display</li>
+          <li>A15 Bionic chip</li>
+        </ul>
+        <div class="product-rating" aria-label="Product rating" title="Product rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+        </div>
+        <p class="price">$999.00</p>
+        <button class="btn add-to-cart" data-name="iPhone 15" data-price="999.00" data-image="images/iphone15.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/laptop1.jpg" alt="High Performance Laptop" class="product-image" />
+      <div class="product-description">
+        <h2>High Performance Laptop</h2>
+        <p>Powerful laptop for work and gaming.</p>
+        <ul>
+          <li>Intel Core i7 Processor</li>
+          <li>16GB RAM</li>
+          <li>512GB SSD</li>
+          <li>NVIDIA GTX 1660 Ti</li>
+          <li>15.6-inch Full HD Display</li>
+        </ul>
+        <p class="price">$1,299.00</p>
+        <button class="btn add-to-cart" data-name="High Performance Laptop" data-price="1299.00" data-image="images/laptop1.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="laptop">
+      <a href="product-details.html"><img src="images/Lenovo ThinkPad L530 Pc.jpg" alt="High Performance Laptop" class="product-image" /></a>
+      <div class="product-description">
+        <h2>Lenovo Thinkpad T410 Pc</h2>
+        <p></p>
+        <ul>
+          <li>Webcam</li>
+          <li>Fingerprint</li>
+          <li>SD Card Reader</li>
+          <li>Display port</li>
+          <li>VGA port</li>
+          <li> Intel (R) i5 @2.4GHz processor</li>
+          <li>16GB RAM</li>
+          <li>Windows 11</li>
+          <li>512GB SSD</li>
+          <li>NVIDIA GTX 1660 Ti</li>
+          <li>14" Screen Intel(R) HD Graphics </li>
+          <li> Strong battery 🔋</li>
+        </ul>
+        <p class="price">$119.76</p>
+        <button class="btn add-to-cart" data-name="High Performance Laptop" data-price="1299.00" data-image="images/laptop1.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="gaming">
+      <img src="images/Meta Quest 2 .jpg" alt="Meta Quest 2" class="product-image" />
+      <div class="product-description">
+        <h2>Meta Quest 2</h2>
+        <p>
+          Meta Quest 2 - Specifications:
+          •	Display:
+          •	Fast-switch LCD
+          •	Resolution: 1832 x 1920 pixels per eye
+          •	Refresh rate: <br> 72Hz (up to 90Hz and 120Hz with updates)
+          •	Processor:
+          •	Qualcomm Snapdragon XR2 Platform
+          •	RAM:
+          •	6 GB
+          •	Storage Options:
+          •	64 GB, 128 GB, or 256 GB (varies by model)
+          •	Audio:
+          •	Built-in positional audio
+          •	3.5mm headphone jack 
+        </p>
+        <p class="price">$499.00</p>
+        <button class="btn add-to-cart" data-name="Meta Quest 2" data-price="499.00" data-image="images/gold.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="smartphone">
+      <img src="images/iphone13.jpg" alt="iPhone 13" class="product-image" />
+      <div class="product-description">
+        <h2>iPhone 13</h2>
+        <p>Apple iPhone 13 with improved battery life and camera.</p>
+        <ul>
+          <li>6.1-inch Super Retina XDR display</li>
+          <li>A15 Bionic chip</li>
+          <li>Dual 12MP camera system</li>
+          <li>5G capable</li>
+          <li>Available in multiple colors</li>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="iPhone 13" data-price="799.00" data-image="images/iphone13.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/hp.jpg" alt="HP Laptop" class="product-image" />
+      <div class="product-description">
+        <h2>HP Laptop</h2>
+        <p>Reliable HP laptop for everyday use and office work.</p>
+        <ul>
+          <li>Intel Core i5 Processor</li>
+          <li>8GB RAM</li>
+          <li>256GB SSD</li>
+          <li>14-inch HD Display</li>
+          <li>Lightweight and portable</li>
+        </ul>
+        <p class="price">$599.00</p>
+        <button class="btn add-to-cart" data-name="HP Laptop" data-price="599.00" data-image="images/hp.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="smartphone">
+      <img src="images/spark 20.jpg" alt="spark 20" class="product-image" />
+      <div class="product-description">
+        <h2>iPhone 13</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="spark 20" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="gaming">
+      <img src="images/Concord USB Wired Gamepad.jpg" alt="Concord USB Wired Gamepad" class="product-image" />
+      <div class="product-description">
+        <h2>Concord USB Wired Gamepad</h2>
+        <p>
+
+          Concord USB Wired Gamepad - Specifications:
+          •	Connectivity: <br> USB wired connection
+          •	Compatibility: <br> PC, PlayStation, Xbox, and other gaming platforms
+          •	Buttons: 12 programmable buttons
+          •	Joysticks: Dual analog sticks with 360-degree rotation
+          •	Vibration feedback: Yes, for immersive gaming experience
+          •	Cable length: 1.8 meters (approx.)
+          •	Ergonomic design for comfortable grip during long gaming session
+        </p>
+        <p class="price">$45,000.00</p>
+        <button class="btn add-to-cart" data-name="Concord USB Wired Gamepad" data-price="45000.00" data-image="images/vol.png">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/Lenovo idealpad 100.jpg" alt="High Performance Laptop" class="product-image" />
+      <div class="product-description">
+        <h2>Lenovo idealpad</h2>
+        <p>Powerful laptop for work and gaming.Extremely Neat </p>
+        <ul>
+          <li>Intel Core i7 Processor</li>
+          <li>8GB RAM </li>
+          <li>1 Terabyte HDD🔥🔥</li>
+          <li>2.30GHz speed</li>
+          <li>15inch Full HD Display</li>
+          <li>HDMI port✅</li>
+          <li>Dolby Sound </li>
+          <li>4th Generation</li>
+        </ul>
+        <p class="price">$1,299.00</p>
+        <button class="btn add-to-cart" data-name="High Performance Laptop" data-price="1299.00" data-image="images/Lenovo.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+    <div class="product-info" data-category="smartphone">
+      <img src="images/spark 20.jpg" alt="spark 20" class="product-image" />
+      <div class="product-description">
+        <h2>iPhone 13</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="spark 20" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/laptop1.jpg" alt="laptop1" class="product-image" />
+      <div class="product-description">
+        <h2>toshiba</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="laptop1" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/mackbook.jpg" alt="mackbook" class="product-image" />
+      <div class="product-description">
+        <h2>mackbook</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="mackbook" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/toshiba.jpg" alt="toshiba" class="product-image" />
+      <div class="product-description">
+        <h2>toshiba Pc</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="toshiba" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/samsung.jpg" alt="samsung" class="product-image" />
+      <div class="product-description">
+        <h2>iPhone 13</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="samsung" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/Lenovo idealpad 100.jpg" alt="spark 20" class="product-image" />
+      <div class="product-description">
+        <h2>lenovo idealpad</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="lenovo idealpad" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+    <div class="product-info" data-category="gaming">
+      <img src="images/Foldable quadcopter drop .jpg" alt="Foldable quadcopter drop" class="product-image" />
+      <div class="product-description">
+        <h2>Foldable quadcopter drop</h2>
+        <p>
+        Equipped with a high-definition camera, advanced stabilization,
+         <br> and a powerful battery for extended flight time.
+
+        </p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Foldable quadcopter drop" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+    <div class="product-info" data-category="smartphone">
+      <img src="images/iponeX.jpg" alt="iphone X" class="product-image" />
+      <div class="product-description">
+        <h2>iPhone X</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="iphoneX" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/samsung galax.jpg" alt="samsung galax" class="product-image" />
+      <div class="product-description">
+        <h2>samsung galax</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="samsung galax" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/Wireless Earbuds with Ear Hooks.jpg" alt="Wireless Earbuds with Ear Hooks" class="product-image" />
+      <div class="product-description">
+        <h2>iPhone 13</h2>
+        <p>Wireless Earbuds with Ear Hooks – Likely used for sports or active use, offering a secure fit.</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Wireless Earbuds with Ear Hooks" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/Anker Dual USB Car Charger.jpg" alt="spark 20" class="product-image" />
+      <div class="product-description">
+        <h2>Anker Dual USB Car Charger</h2>
+        <p>Anker Dual USB Car Charger – Fast-charging car adapter <br>
+           with two USB ports and Quick Charge 3.0 support.</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Anker Dual USB Car Charger" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="smartphone">
+      <img src="images/nokia.jpg" alt="nokia" class="product-image" />
+      <div class="product-description">
+        <h2>Nokia</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="nokia" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="smartphone">
+      <img src="images/Tecno spark go.jpg" alt="spark 20" class="product-image" />
+      <div class="product-description">
+        <h2>Tecno Spark Go</h2>
+        <p>	•	Design:
+          •	Dual rear camera setup
+          •	<br> Modern punch-hole or dewdrop notch display
+          •	Battery: Likely features a large battery (typically around 5000mAh) based on the Spark series history
+          • <br>	Charging: “Charge Completed” text suggests USB-C and fast charging support
+          •	<br> Software: Runs on Android Go Edition, optimized for low RAM and budget hardware
+          • <br>Performance: Expected to have an entry-level processor like MediaTek Helio A-series or G-series
+          •	 <br>RAM & Storage: Typically 2GB–4GB RAM and 32GB–64GB storage in Go models</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="spark 20" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="smartphone">
+      <img src="images/tecno pop 5.jpg" alt="Pop 5" class="product-image" />
+      <div class="product-description">
+        <h2>Tecno Pop 5</h2>
+        <p>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate
+          •	Processor: MediaTek Helio G85
+          •	RAM: <br> 8 GB RAM (expandable by virtual RAM)
+          •	Storage: 256 GB
+          •	Rear Camera: br 50 MP AI Dual Camera
+          •	Front Camera: 32 MP with dual flash
+          •	<br> Battery: 5000 mAh with 18W fast charging
+          •	OS: Android 13 with HiOS
+          •	Audio: <br> Dual speakers with DTS Audio
+          •	Design: iPhone-inspired camera module</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Pop 5" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="smartphone">
+      <img src="images/Redmi.jpg" alt="Redmi" class="product-image" />
+      <div class="product-description">
+        <h2>Redmi Note 12</h2>
+        <li>Display: 6.6” HD+ IPS LCD, 90Hz refresh rate</li>
+        <li>Processor: MediaTek Helio G85</li>
+        <li>RAM: 8 GB RAM (expandable by virtual RAM)</li>
+        <li>Storage: 256 GB</li>
+        <li>Rear Camera: 50 MP AI Dual Camera</li>
+        <li>Front Camera: 32 MP with dual flash</li>
+        <li>Battery: 5000 mAh with 18W fast charging</li>
+        <li>OS: Android 13 with HiOS</li>
+        <li>Audio: Dual speakers with DTS Audio</li>
+        <li>Design: iPhone-inspired camera module</li>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Redmi" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="smartphone">
+      <img src="images/Tecno Pop 7.jpg" alt="Tecno Pop 7" class="product-image" />
+      <div class="product-description">
+        <h2>Tecno Pop 7</h2>
+        <p>•	Display: 6.6-inch HD+ “Drop Screen” (waterdrop notch)
+          •	Storage: 64GB internal storage
+          •	RAM: <br> 4GB (includes extended 2GB virtual RAM)
+          •	Rear Camera: <br> 8MP dual rear camera setup
+          •	Battery: 5000mAh (large capacity for long usage)
+          •	SIM: Dual SIM (open – likely means unlocked)
+          •	OS: Android Go Edition (usually for budget models)
+          •	Extras: <br> Often comes with a free protective case and earphones </p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Tecno pop 7" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/Mini Power Bank with USB-C Connector.jpg" alt="Mini Power Bank with USB-C Connector " class="product-image" />
+      <div class="product-description">
+        <h2>Mini Power Bank with USB-C Connector</h2>
+        <p>Mini Power Bank with USB-C Connector –<br> A compact charger that attaches directly to the phone, displaying charge percentage..</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Mini Power Bank with USB-C Connector " data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/Multi-Function Charging Cable.jpg" alt="AMulti-Function Charging Cable" class="product-image" />
+      <div class="product-description">
+        <h2>AMulti-Function Charging Cable </h2>
+        <p>AMulti-Function Charging Cable –<br> Includes connectors for USB, USB-C, Lightning, and a magnetic charger for watches.</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="AMulti-Function Charging Cable" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/Neckband Bluetooth Earphone.jpg" alt="Neckband Bluetooth Earphonesr " class="product-image" />
+      <div class="product-description">
+        <h2>Neckband Bluetooth Earphones</h2>
+        <p>Neckband Bluetooth Earphones – <br> Wireless in-ear headphones with a flexible neckband and control buttons.</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Neckband Bluetooth Earphones " data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/Adjustable Tablet Stand.jpg" alt="Adjustable Tablet Stand " class="product-image" />
+      <div class="product-description">
+        <h2>Adjustable Tablet Stand  </h2>
+        <p>Adjustable Tablet Stand – <br>Desktop mount for tablets with adjustable angles and height.</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Adjustable Tablet Stand " data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="laptop">
+      <img src="images/MacBook Air 2017.jpg" alt="HP Laptop" class="product-image" />
+      <div class="product-description">
+        <h2>MacBook Air 2017</h2>
+        <p>Reliable MacBook laptop for everyday use and office work.</p>
+        <ul>
+          <li>Core i5 Processor</li>
+          <li>8GB RAM</li>
+          <li>128GB SSD</li>
+          <li>14-inch HD Display</li>
+          <li>Lightweight and portable</li>
+          <li>Keyboard light</li>
+        </ul>
+        <p class="price">$3500.00</p>
+        <button class="btn add-to-cart" data-name="MacBook Air 2017 Laptop" data-price="3500.00" data-image="images/MacBook.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/Beats Studio3 Wireless Over-Ear Headphones.jpg" alt="Beats Studio3 Wireless Over-Ear Headphones" class="product-image" />
+      <div class="product-description">
+        <h2>Beats Studio3 Wireless Over-Ear Headphones</h2>
+        <p>Beats Studio3 Wireless Over-Ear Headphones
+          Use: High-performance wireless noise-canceling headphones.</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Beats Studio3 Wireless Over-Ear Headphones" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/Uni USB-C to HDMI Cable.jpg" alt="Uni USB-C to HDMI Cable" class="product-image" />
+      <div class="product-description">
+        <h2>Uni USB-C to HDMI Cable</h2>
+        <p>Uni USB-C to HDMI Cable
+          Use: Connects USB-C devices (like laptops or phones) to HDMI-enabled displays./p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Uni USB-C to HDMI Cable " data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/JOYROOM Car Phone Mount Holder.jpg" alt="JOYROOM Car Phone Mount Holder " class="product-image" />
+      <div class="product-description">
+        <h2>Neckband Bluetooth Earphones</h2>
+        <p>JOYROOM Car Phone Mount Holder
+          Use: Smartphone holder for car air vents,  <br>often adjustable with a strong grip.</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="JOYROOM Car Phone Mount Holder " data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/OontZ Angle 3 Bluetooth Portable Speaker.jpg" alt="OontZ Angle 3 Bluetooth Portable Speaker" class="product-image" />
+      <div class="product-description">
+        <h2>OontZ Angle 3 Bluetooth Portable Speaker</h2>
+        <p>OontZ Angle 3 Bluetooth Portable Speaker
+          Use: Wireless portable speaker with good sound quality and waterproof features</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="OontZ Angle 3 Bluetooth Portable Speaker " data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="Electronic Accessories">
+      <img src="images/Beats Fit Pro Wireless Earbuds.jpg" alt="Beats Fit Pro Wireless Earbuds." class="product-image" />
+      <div class="product-description">
+        <h2>Beats Fit Pro Wireless Earbuds</h2>
+        <p>Beats Fit Pro Wireless Earbuds
+          Use: True wireless earbuds with secure fit and active noise cancellation</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="Beats Fit Pro Wireless Earbuds. " data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+  
+
+    <div class="product-info" data-category="gaming">
+      <img src="images/foldable camera drone with its remote controller and smartphone display.jpg"
+       alt="foldable camera drone with its remote controller and smartphone display" class="product-image" />
+      <div class="product-description">
+        <h2>Foldable Camera Drone </h2>
+        <p>. Typical Specifications (e.g., Eachine E58 or equivalent):
+          •	Camera:
+          •	720p or 1080p HD (some models offer adjustable angles)
+          •	Real-time Wi-Fi FPV (First Person View) via smartphone
+          •	Control Range:
+          •	Approximately 80–100 meters
+          •	Flight Time:
+          •	7–9 minutes per battery
+          •	Often comes with multiple batteries
+          •	Battery:
+          •	3.7V 500mAh Li-Po
+          •	Features:
+          •	Foldable arms for portability
+          •	Altitude hold
+          •	One key takeoff/landing
+          •	3-speed modes
+          •	360° flips
+          •	Headless mode
+          •	Remote Control:
+          •	Dual joystick setup with dedicated buttons for camera, return, and other controls
+          •	Smartphone holder for FPV viewing</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="foldable drone camera" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-info" data-category="gaming">
+      <img src="images/foldable camera drone with its remote controller and smartphone display.jpg"
+       alt="foldable camera drone with its remote controller and smartphone display" class="product-image" />
+      <div class="product-description">
+        <h2>Foldable Camera Drone </h2>
+        <p>Model Name: Varies (E88 Pro / E58 / S168, etc.)
+
+          Key Specs:
+            •	Camera: Dual camera setup (typically 720p or 1080p; some advertise 4K, <br> but it’s often interpolated)
+            •	WiFi FPV: Real-time transmission to smartphone via app
+            •	Flight Time: 8–15 minutes (per battery)
+            •	Control Range: 80–100 meters
+            •	Battery: 3.7V 500–1800mAh Li-ion (depends on variant)
+            •	Controller: 2.4GHz with smartphone mount
+            •	Functions: One-key takeoff/landing, <br> headless mode, altitude hold, trajectory flight
+            Extras (as seen in the image):
+            •	Carrying case
+            •	Extra battery
+            •	USB charging cable
+            •	Foldable arms for portability</p>
+        <ul>
+        </ul>
+        <p class="price">$799.00</p>
+        <button class="btn add-to-cart" data-name="foldable drone camera" data-price="799.00" data-image="images/spark 20.jpg">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <img src="images/LOGO 03.png" alt="Footer Logo" class="footer-logo" />
+      <p>&copy; 2025 Smart Nest | Tech Store. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Add to cart functionality using localStorage for multiple products
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        // Check if user is logged in
+        const loggedInUserEmail = localStorage.getItem('loggedInUserEmail');
+        if (!loggedInUserEmail) {
+          alert('Please log in to add products to your cart.');
+          window.location.href = 'account.html';
+          return;
+        }
+
+        const product = {
+          name: button.getAttribute('data-name'),
+          price: parseFloat(button.getAttribute('data-price')),
+          image: button.getAttribute('data-image'),
+          quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if product already in cart
+        const existingProductIndex = cart.findIndex(item => item.name === product.name);
+        if (existingProductIndex !== -1) {
+          cart[existingProductIndex].quantity += 1;
+        } else {
+          cart.push(product);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${product.name} added to cart!`);
+      });
+    });
+
+    // Populate category dropdown dynamically
+    const categorySelect = document.getElementById('categorySelect');
+    const products = document.querySelectorAll('.product-info');
+
+    const categories = new Set();
+    products.forEach(product => {
+      const category = product.getAttribute('data-category');
+      if (category) {
+        categories.add(category);
+      }
+    });
+
+    categories.forEach(category => {
+      const option = document.createElement('option');
+      option.value = category;
+      option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+      categorySelect.appendChild(option);
+    });
+
+    // Filter products based on category and search
+    function filterProducts() {
+      const selectedCategory = categorySelect.value.toLowerCase();
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+
+      products.forEach(product => {
+        const productCategory = product.getAttribute('data-category').toLowerCase();
+        const productName = product.querySelector('h2').textContent.toLowerCase();
+
+        const categoryMatch = selectedCategory === 'all' || productCategory === selectedCategory;
+        const searchMatch = productName.includes(searchQuery);
+
+        if (categoryMatch && searchMatch) {
+          product.style.display = '';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    categorySelect.addEventListener('change', filterProducts);
+    document.getElementById('searchButton').addEventListener('click', filterProducts);
+
+    // Optional: filter on enter key in search input
+    document.getElementById('searchInput').addEventListener('keyup', event => {
+      if (event.key === 'Enter') {
+        filterProducts();
+      }
+    });
+
+    // Common search bar functionality for all pages
+    const headerSearchInput = document.getElementById('headerSearchInput');
+    const headerSearchButton = document.getElementById('headerSearchButton');
+
+    function commonSearch() {
+      const query = headerSearchInput.value.trim();
+      if (!query) return;
+
+      if (window.location.pathname.endsWith('product.html')) {
+        // On product page, filter products dynamically
+        const products = document.querySelectorAll('.product-info');
+        products.forEach(product => {
+          const productName = product.querySelector('h2').textContent.toLowerCase();
+          if (productName.includes(query.toLowerCase())) {
+            product.style.display = '';
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      } else {
+        // On other pages, redirect to product.html with search query
+        window.location.href = `product.html?search=${encodeURIComponent(query)}`;
+      }
+    }
+
+    if (headerSearchInput && headerSearchButton) {
+      headerSearchButton.addEventListener('click', commonSearch);
+      headerSearchInput.addEventListener('keyup', event => {
+        if (event.key === 'Enter') {
+          commonSearch();
+        }
+      });
+    }
+
+    // On product.html, read search query from URL and filter products on page load
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    if (window.location.pathname.endsWith('product.html')) {
+      const searchParam = getQueryParam('search');
+      if (searchParam) {
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+          searchInput.value = searchParam;
+        }
+        filterProducts();
+      }
+    }
+  </script>
+</body>
+</html>
